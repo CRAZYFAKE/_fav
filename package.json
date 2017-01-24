@@ -1,0 +1,10 @@
+{
+  "name": "nrj_app",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "dependencies": {
+    "fetch": "^1.1.0",
+    "request": "^2.79.0"
+  }
+}

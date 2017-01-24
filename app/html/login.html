@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" class="fsvs demo">
+<!--加class="fsvs demo"是为那个整屏滚的那个首页服务的-->
+<!--!DOCTYPE html后面加那一坨是html规范，加上后iframe高度自适应就不会产生滚动条-->
+
+<head lang="en">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
+    <title>爱数内容家</title>
+    <link rel="stylesheet" type="text/css" href="../css/bootstrap.min.css" />
+    <link rel="stylesheet" type="text/css" href='https://at.alicdn.com/t/font_1477560793_5535157.css' />
+    <link rel="stylesheet" href="../css/main.min.css?_=201701191718">
+</head>
+<script src="../js/config.js"></script>
+<script src='../js/public.js'></script>
+<script src='../js/enterpriseLogin.js'></script>
+<script src="../js/jquery-1.11.1.min.js"></script>
+<script src="../js/common.js?_=201701191718"></script>
+<style>
+    .loginPage .logo {
+        margin: 0 auto;
+        width: 194px;
+        height: 55px;
+        background: url("../images/logo_wx.png") 0 0 no-repeat;
+        background-size: cover;
+        margin-top: 60px;
+        -webkit-app-region: drag;
+    }
+</style>
+
+<body>
+
+    <script src="../js/jquery-1.11.1.min.js"></script>
+
+    <div class="loginPage">
+        <div class="h_line"></div>
+        <div class="content_box">
+            <div class="routeAjax">
+                <div class="logo"></div>
+            </div>
+            <div class="bigTitle">用户登录</div>
+            <div class="login_top_box">
+
+            </div>
+            <div class="login_bottom_box">
+                <ul style="margin-left: -324px;">
+                    <li class="wx_box">
+                        <div class="wx_box_con" onclick="weixinLogin_enterpriseLogin()">
+                            <div></div>
+                            <p>点击登录</p>
+                        </div>
+                    </li>
+                    <li class="zh_box">
+                        <div class="input_box input_box_up">
+                            <div class="telephone"></div>
+                            <div class="input_div">
+                                <input id="name" name="account" type="text" placeholder="请输入您的账号" autocomplete="off">
+                            </div>
+                            <img class="empty_name" src="../images/cha.png">
+                        </div>
+                        <div class="input_box input_box_down">
+                            <div class="lock"></div>
+                            <div class="input_div">
+                                <input id="password" name="password" type="password" maxlength="16" placeholder="请输入您的密码" autocomplete="off" onkeydown="if(event.keyCode==13){login();return false;}">
+                            </div>
+                            <div class="eyes eyes_close"></div>
+                        </div>
+                        <div class="oper_div">
+                            <div class="oper_div_l">
+                                <div class="rePass rePass_close"></div>
+                                <div class="rePass_cont">30天内记住我</div>
+                            </div>
+                            <div class="login_div">
+                                <a href="#index/resetPassword" class="routeAjax password">忘记密码</a>
+                            </div>
+                        </div>
+                        <div class="login_bottom">
+                            <input id="login" type="submit" value="登录" onclick="login()">
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer">EISOO<sup>&reg;</sup> 爱数内容家 © 2017</div>
+        <div style="position: absolute;cursor: pointer;right: 6px;top:10px;" onclick="window.close()"><img src="../images/cha.png"></div>
+    </div>
+</body>
+<script>
+    function login() {
+        // var account = document.getElementById("name").value;
+        // var password = document.getElementById("password").value;
+        var account = '18221003349';
+        var password = '111111';
+        if (account == "") {
+            alert('用户名不能为空...');
+            return;
+        }
+        if (password == "") {
+            alert('密码不能为空...');
+            return;
+        }
+        $base = new Base64();
+        password = $base.encode(password);
+        public().post('/user/login', {
+            mobile: account,
+            password: password,
+            timeout: 3
+        }).then(re => {
+            let that = this;
+            var ret = {};
+            ret = JSON.parse(re);
+            const electron = require('electron');
+            const ipcRenderer = electron.ipcRenderer;
+            ipcRenderer.on('asynchronous-reply', function(event, arg) {
+                // window.close();
+            })
+            if (!ret['errorCode']) {
+                // window.close();
+                // console.log(document.cookie);
+                var fs = require('fs');
+                fs.appendFile(__dirname + '/file/sql', 'arr', function(err) {
+                    if (err)
+                        console.log("fail " + err);
+                    else
+                        console.log("写入文件ok");
+                });
+                ipcRenderer.send('asynchronous-message', 'login_success')
+            } else {
+                const dialog = electron.remote.dialog;
+                dialog.showMessageBox(null, {
+                    type: 'error',
+                    buttons: ['yes', 'no'],
+                    title: '登陆失败',
+                    message: ret['errorInfo']
+                }, click => {
+                    console.log(click);
+                });
+            }
+        }, err => {
+            alert(err.message)
+        })
+    }
+</script>
+
+</html>

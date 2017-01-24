@@ -1,0 +1,813 @@
+html,
+body {
+    min-width: 100%;
+}
+
+.read_body {
+    width: 100%;
+    min-height: 100%;
+    position: relative;
+    float: left;
+    background-color: #E9EAEC;
+}
+
+
+/* mobile阅读页 */
+
+.mark_layer {
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.4);
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    z-index: 100;
+    display: none;
+}
+
+.webview_read_box {
+    width: 100%;
+    min-height: 100%;
+    padding: 15px;
+    background: #ffffff;
+}
+
+.fav_title {
+    font-size: 24px;
+    color: #5c5741;
+    line-height: 34px;
+    margin-bottom: 16px;
+}
+
+.webview_read_box .read_content,
+.webview_read_box .read_content_style {
+    margin-top: 20px;
+}
+
+
+/* web阅读页 */
+
+
+/* readPublic start */
+
+.read_public_header {
+    width: 800px;
+    height: 70px;
+    line-height: 70px;
+    margin: 30px auto -40px;
+    background: #ffffff;
+    box-shadow: 0 0 5px rgba(143, 133, 95, 0.2);
+    border-radius: 2px;
+}
+
+.read_public_header .logo {
+    margin-left: 15px;
+    height: 30px;
+    vertical-align: middle;
+}
+
+.read_public_header .line {
+    display: inline-block;
+    vertical-align: middle;
+    width: 1px;
+    height: 30px;
+    line-height: 70px;
+    border-left: 1px solid #D1D1D1;
+    margin-left: 20px;
+    margin-right: 15px;
+}
+
+.read_public_header .register_now {
+    display: inline-block;
+    vertical-align: middle;
+    width: 80px;
+    height: 30px;
+    line-height: 30px;
+    text-align: center;
+    color: #FFFFFF;
+    text-decoration: none;
+    background-color: #E70014;
+    border-radius: 30px;
+    margin-left: 35px;
+    margin-right: 15px;
+}
+
+.read_public_header .login_now {
+    color: #E70014;
+}
+
+.app_footer {
+    width: 100%;
+    height: 60px;
+    position: fixed;
+    bottom: 0px;
+    z-index: 100;
+    background-color: #D1D1D1;
+}
+
+.app_footer img {
+    display: block;
+    float: left;
+}
+
+.app_footer .word {
+    height: 100%;
+    color: #595758;
+    float: left;
+    margin-left: 10px;
+    margin-top: 5px;
+}
+
+.app_header_register {
+    width: 80px;
+    height: 35px;
+    line-height: 35px;
+    text-align: center;
+    color: #FFFFFF;
+    background-color: #E60014;
+    display: block;
+    font-size: 14px;
+    border-radius: 20px;
+    text-decoration: none;
+    position: absolute;
+    top: 12px;
+    right: 10px;
+}
+
+.app_footer a:hover {
+    color: #FFFFFF;
+}
+
+.close_read_public_header {
+    float: right;
+    margin-top: 22.5px;
+    margin-right: 15px;
+    width: 25px;
+    height: 25px;
+    vertical-align: middle;
+    cursor: pointer;
+}
+
+
+/* readPublic end */
+
+.read_box {
+    width: 800px;
+    margin: 50px auto;
+    background: #ffffff;
+    box-shadow: 0 0 5px rgba(143, 133, 95, 0.2);
+    border-radius: 2px;
+    padding: 22px 24px 6px 23px;
+    overflow: hidden;
+}
+
+.read_header p {
+    color: #888888;
+    background: url(../../images/read_icon.png) no-repeat 0 4px;
+    padding-left: 20px;
+}
+
+.read_header h1 {
+    font-size: 24px;
+    color: #5c5741;
+    border-left: 3px solid #E70013;
+    line-height: 34px;
+    margin-left: -23px;
+    padding-left: 20px;
+    margin-top: 15px;
+    margin-bottom: 16px;
+}
+
+.read_content h2,
+.read_content h3,
+.read_content h4,
+.read_content h5,
+.read_content h6 {
+    margin-bottom: 14px;
+}
+
+.store_time {
+    color: #888888;
+    margin-bottom: 32px;
+}
+
+.share_group {
+    font-size: 12px;
+    line-height: 26px;
+    color: #595757;
+}
+
+.share_group em {
+    color: #888888;
+}
+
+.fav_from {
+    color: #4D5A86;
+}
+
+.read_content,
+.read_content_style {
+    color: #000000;
+    font-size: 16px;
+    line-height: 30px;
+    word-break: break-all;
+    margin-bottom: 60px;
+}
+
+.read_box .read_content,
+.read_box .read_content_style {
+    margin-left: -23px;
+    margin-right: -24px;
+    padding: 0px 23px;
+}
+
+.read_content p,
+.read_content_style p {
+    margin-bottom: 30px;
+}
+
+
+/*标注提示*/
+
+.markErrorTip {
+    width: 100%;
+    height: 70px;
+    background: rgba(255, 255, 255, 0.9);
+    position: fixed;
+    left: 0;
+    top: 0;
+    z-index: 999;
+    text-align: center;
+    line-height: 70px;
+    color: #d02130;
+    font-size: 18px;
+    display: none;
+    margin-left: 0px!important;
+}
+
+.errorApp {
+    top: 0px!important;
+}
+
+
+/* 页面下面的分享(zhang.lulu) */
+
+.nrj_share_a {
+    width: 81px!important;
+    height: 25px!important;
+    display: inline-block;
+    line-height: 25px!important;
+    text-align: left!important;
+}
+
+.bdshare-button-style0-24 a,
+.bdshare-button-style0-24 .bds_more {
+    background: none;
+    padding-left: 0;
+    float: none;
+}
+
+.bdshare-button-style0-24 a:hover {
+    opacity: 1;
+}
+
+.bdsharebuttonbox {
+    margin-left: 5px;
+}
+
+.bdsharebuttonbox a {
+    padding-left: 6px;
+}
+
+.bdsharebuttonbox .nrj_sqq {
+    padding-left: 7px;
+}
+
+.bdsharebuttonbox .nrj_weixin,
+.bdsharebuttonbox .nrj_tsina {
+    padding-left: 16px;
+}
+
+.bdsharebuttonbox .nrj_weixin {
+    margin-left: 10px;
+}
+
+.bdsharebuttonbox i {
+    width: 16px;
+    height: 16px;
+    background: url(../../images/share_and_return.png) 0 -58px;
+    -webkit-background-size: 40px 94px;
+    background-size: 40px 94px;
+    display: inline-block;
+    vertical-align: middle;
+    margin-right: 6px;
+    margin-top: -2px;
+}
+
+.nrj_sqq i {
+    background-position: -1px -78px;
+    width: 14px;
+    margin-top: -3px;
+}
+
+.nrj_weixin i {
+    background-position: 0 -17px;
+    height: 14px;
+    margin-top: -1px;
+    margin-right: 8px;
+}
+
+.nrj_tsina i {
+    background-position: 0 -38px;
+    height: 13px;
+    margin-right: 9px;
+}
+
+.bdsharebuttonbox a:hover i {
+    background-position: -24px -58px;
+}
+
+.bdsharebuttonbox .nrj_sqq:hover i {
+    background-position: -25px -78px;
+}
+
+.bdsharebuttonbox .nrj_weixin:hover i {
+    background-position: -24px -17px;
+}
+
+.bdsharebuttonbox .nrj_tsina:hover i {
+    background-position: -24px -38px;
+}
+
+.share_bottom {
+    width: 100%;
+    max-width: 790px;
+    margin: auto;
+    line-height: 40px;
+    font-size: 12px;
+    color: #878787;
+}
+
+.share_bottom a {
+    color: #878787;
+}
+
+.share_bottom .nrj_share_a {
+    font-size: 12px;
+}
+
+.share_bottom .nrj_share_a:hover {
+    background-color: #f8f8f8!important;
+    color: #d0202f;
+    border-radius: 3px;
+    box-shadow: 0 0 3px rgba(0, 0, 0, .3)
+}
+
+
+/* 加载中 */
+
+.read_loading {
+    display: block;
+    width: 40px;
+    height: 40px;
+    margin: 100px auto;
+}
+
+
+/* 右侧操作框分享 */
+
+.share_box {
+    overflow-y: hidden;
+}
+
+
+/* .bdshare-button-style0-24 a,.share01 .bdshare-button-style0-24 .bds_more{
+	margin-right: 8px;
+} */
+
+.share01 a {
+    width: 64px;
+    height: 52px;
+    font-size: 12px;
+    float: left!important;
+    color: #888888;
+    padding-top: 28px;
+    position: relative;
+}
+
+.share01 a:hover {
+    color: #e70014;
+}
+
+.share01 i {
+    position: absolute;
+    top: 11px;
+    left: 27px;
+}
+
+.share01 .nrj_weixin i {
+    left: 32px;
+    top: 13px;
+}
+
+.share01 .nrj_tsina i {
+    left: 32px;
+    top: 12px;
+}
+
+
+/* 右侧操作框 */
+
+.jump_source_page a {
+    display: block;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    color: #595758;
+    text-decoration: none;
+}
+
+.read_column {
+    width: 64px;
+    height: 332px;
+    position: fixed;
+    top: 50px;
+    right: calc(50% - 467px);
+    text-align: center;
+}
+
+.read_column .column {
+    width: 64px;
+    height: 64px;
+    border-radius: 2px;
+    background: rgba(255, 255, 255, .3);
+    box-shadow: 0 0 5px rgba(143, 133, 95, .2);
+    cursor: pointer;
+    color: #888888;
+    padding-top: 42px;
+    position: absolute;
+    right: 0;
+    top: 0
+}
+
+.read_column .column:hover,
+.read_column .word_change.spec,
+.read_column .share_box.spec {
+    background: #ffffff;
+}
+
+.read_column .column.current {
+    color: #E70013;
+}
+
+.read_column div:nth-child(2) {
+    top: 67px;
+    padding-top: 0;
+}
+
+.read_column div:nth-child(3) {
+    top: 134px;
+}
+
+.read_column div:nth-child(4) {
+    top: 201px;
+}
+
+.read_column div:nth-child(5) {
+    top: 268px;
+    padding-top: 0;
+}
+
+.read_column span {
+    width: 23px;
+    height: 25px;
+    background: url(../../images/sprite_column.png) -1px 0;
+    -webkit-background-size: 58px 158px;
+    background-size: 58px 158px;
+    position: absolute;
+    top: 11px;
+    right: 21px;
+}
+
+.read_column .column.current span {
+    background-position: -35px 0;
+}
+
+.read_column .word_title {
+    float: right;
+    text-align: center;
+    width: 64px;
+    height: 64px;
+    padding-top: 42px;
+}
+
+.read_column div:nth-child(2).current .word_title {
+    color: #E70013;
+}
+
+.read_column .word,
+.read_column.night .column:hover .word {
+    background-position: 0 -34px;
+    width: 25px;
+    height: 25px;
+    right: 19px;
+}
+
+.read_column .column.current .word {
+    background-position: -33px -34px;
+    right: 20px;
+}
+
+.word_range {
+    width: 304px;
+    height: 64px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: none;
+}
+
+.word_range_con {
+    border-bottom: 1px solid #A9A9A9;
+    height: 49px;
+    width: 219px;
+    color: #A9A9A9;
+    position: absolute;
+    left: 34px;
+    top: 4px;
+}
+
+.word_range_con b {
+    font-weight: normal;
+    height: 45px;
+    position: absolute;
+    top: 5px;
+    line-height: 32px;
+    text-align: center;
+}
+
+.word_range_con b.current {
+    color: #E70013;
+}
+
+.word_range_con b:nth-child(1) {
+    font-size: 12px;
+    width: 16px;
+    left: -8px;
+}
+
+.word_range_con b:nth-child(2) {
+    font-size: 16px;
+    left: 60px;
+}
+
+.word_range_con b:nth-child(3) {
+    font-size: 20px;
+    left: 136px;
+}
+
+.word_range_con b:nth-child(4) {
+    width: 48px;
+    font-size: 24px;
+    left: 200px;
+}
+
+.word_range_con i {
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background: #ffffff;
+    border: 2px solid #A9A9A9;
+    position: absolute;
+    top: 40px;
+    left: 5px;
+}
+
+.word_range_con b.current i {
+    width: 13px;
+    height: 13px;
+    background: #E70013;
+    border-color: #E70013;
+    left: 2px;
+    top: 37px;
+}
+
+.word_range_con b:nth-child(2) i {
+    left: 12px;
+}
+
+.word_range_con b:nth-child(2).current i {
+    left: 9px;
+}
+
+.word_range_con b:nth-child(3) i {
+    left: 6px;
+}
+
+.word_range_con b:nth-child(3).current i {
+    left: 3px;
+}
+
+.word_range_con b:nth-child(4) i {
+    left: 19px;
+}
+
+.word_range_con b:nth-child(4).current i {
+    left: 18px;
+}
+
+.read_column .light,
+.read_column.night .column:hover .light {
+    background-position: 0 -68px;
+    width: 25px;
+    height: 24px;
+    right: 19px;
+}
+
+.read_column div.current .light {
+    background-position: -38px -53px;
+}
+
+.read_column .jump,
+.read_column.night .column:hover .jump {
+    background-position: -2px -102px;
+    width: 21px;
+    height: 24px;
+    top: 13px;
+    left: 24px;
+}
+
+.read_column div.current .jump {
+    background-position: -44px -77px;
+}
+
+.read_column .share,
+.read_column.night .column:hover .share {
+    background-position: 0 -134px;
+    width: 23px;
+    height: 23px;
+    top: 12px;
+}
+
+.read_column div.current .share {
+    background-position: -34px -134px;
+}
+
+.read_column .share_title {
+    float: right;
+    text-align: center;
+    width: 64px;
+    height: 64px;
+    padding-top: 42px;
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    z-index: 100;
+}
+
+.return_top {
+    width: 64px;
+    height: 64px;
+    border-radius: 2px;
+    background: rgba(255, 255, 255, 0.3);
+    box-shadow: 0 0 5px rgba(143, 133, 95, .2);
+    position: fixed;
+    bottom: 90px;
+    right: calc(50% - 467px);
+    text-align: center;
+    padding-top: 38px;
+    color: #888888;
+    cursor: pointer;
+    display: none;
+}
+
+.return_top span {
+    width: 16px;
+    height: 12px;
+    position: absolute;
+    top: 16px;
+    left: 23px;
+    background: url(../../images/share_and_return.png);
+    -webkit-background-size: 40px 94px;
+    background-size: 40px 94px;
+}
+
+.return_top:hover {
+    color: #e70014;
+}
+
+.return_top:hover span {
+    background-position: -24px 0;
+}
+
+
+/* 黑夜状态下 */
+
+body.night {
+    background: #0d0e10;
+}
+
+.read_body.night {
+    background: #0d0e10;
+}
+
+.read_box.night {
+    background: #2f2d2e;
+}
+
+.read_header.night p,
+.read_header.night .store_time,
+.air_bubble_circle.night {
+    color: #888888;
+}
+
+.read_header.night h1,
+.read_content.night {
+    color: #999999;
+}
+
+nrjmark.night {
+    border-color: rgba(136, 136, 136, .5)!important;
+}
+
+.share_bottom .nrj_share_a.night:hover {
+    background: #454545!important;
+    box-shadow: 0 0 3px rgba(0, 0, 0, .7);
+    color: #888888;
+}
+
+.share_bottom .nrj_share_a.night:hover i {
+    background-position: 0 -58px;
+}
+
+.share_bottom .nrj_share_a.night.nrj_weixin:hover i {
+    background-position: 0 -17px;
+}
+
+.share_bottom .nrj_share_a.night.nrj_tsina:hover i {
+    background-position: 0 -38px;
+}
+
+.share_bottom .nrj_share_a.night.nrj_sqq:hover i {
+    background-position: -1px -78px;
+}
+
+.read_column.night .column,
+.return_top.night {
+    background: #2f2d2e;
+}
+
+.read_column.night .column:hover,
+.read_column.night .word_change.spec,
+.read_column.night .share_box.spec {
+    background: #ffffff;
+    color: #888888;
+}
+
+.read_column .column.night {
+    color: #ffffff;
+}
+
+.read_column .column.night span {
+    background: url(../../images/sprite_night.png);
+    -webkit-background-size: 24px 157px;
+    background-size: 24px 157px;
+}
+
+.read_column .column.night .word {
+    background-position: 0 -28px;
+}
+
+.read_column .column.night .light {
+    background-position: 0 -68px;
+}
+
+.read_column .column.night .jump {
+    background-position: 0 -80px;
+}
+
+.read_column .column.night .share {
+    background-position: 0 -100px;
+}
+
+.read_column.night .column:hover span {
+    background: url(../../images/sprite_column.png);
+    -webkit-background-size: 58px 158px;
+    background-size: 58px 158px;
+}
+
+.read_column.night .word_change.spec .word {
+    background: url(../../images/sprite_column.png);
+    background-position: 0 -34px;
+    -webkit-background-size: 58px 158px;
+    background-size: 58px 158px;
+}
+
+.read_column.night .share_box.spec .share {
+    background: url(../../images/sprite_column.png);
+    background-position: 0 -134px;
+    -webkit-background-size: 58px 158px;
+    background-size: 58px 158px;
+}

@@ -1,0 +1,53 @@
+.safeInfoBox{
+	padding:0px 60px; 	
+	max-width: 1000px;
+}
+.safeInfoBox .inside{
+	border:#f1f1f1 solid 10px; 
+	margin:30px auto;
+	padding: 20px 20px 30px;
+}
+.safeInfoBox .inside .title{
+	padding-bottom: 20px;
+	border-bottom: #f1f1f1 solid 1px;
+	font-size: 18px;
+	color: #585858;
+	margin-bottom:20px;
+}
+.safeInfoBox .inside .password-wrap{
+	margin-bottom: 25px;
+}
+.safeInfoBox .inside .line1{
+	margin-bottom: 12px;
+}
+.safeInfoBox .inside .password{
+	width: 360px;
+	height: 35px;
+	border-radius: 20px;
+	line-height: 35px;
+	background-color: #f1f1f1;
+	padding-left: 15px;
+}
+.safeInfoBox .inside .btn{
+	width: 120px;
+	height: 35px;
+	border-radius: 18px;
+	font-size: 14px;
+	margin-right: 15px;
+	color: #fff;
+}
+.safeInfoBox .inside .confirm{
+	background-color: #D1D1D1;
+	/*background-color: #bf1829;*/
+}
+.safeInfoBox .inside .confirm-ok{
+	background-color: #bf1829;
+}
+.safeInfoBox .inside .reset{
+	background-color: #6a6869;
+}
+.safeInfoBox .inside .result{
+	padding-left: 10px;
+	color:#bf1829;
+	margin-bottom:10px;
+}

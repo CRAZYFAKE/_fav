@@ -1,0 +1,187 @@
+<head lang="en">
+    <style type="text/css">
+        @charset "UTF-8";
+        [ng\:cloak],
+        [ng-cloak],
+        [data-ng-cloak],
+        [x-ng-cloak],
+        .ng-cloak,
+        .x-ng-cloak,
+        .ng-hide:not(.ng-hide-animate) {
+            display: none !important;
+        }
+        
+        ng\:form {
+            display: block;
+        }
+        
+        .ng-animate-shim {
+            visibility: hidden;
+        }
+        
+        .ng-anchor {
+            position: absolute;
+        }
+    </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
+    <title>title</title>
+    <meta name="keywords" content="内容发布、企业订阅、个人收藏、在线标注">
+    <meta name="description" content="基于安全凭证、内容订阅和移动推送等机制，为企业级客户构建一条安全、直达的对外内容发布通道，帮助企业级客户面向众多外部组织和成员安全、敏捷的传递业务内容。">
+    <meta property="wb:webmaster" content="b79ece36cc3b5c63">
+    <meta property="qc:admins" content="2153731467665127672116375">
+    <link rel="stylesheet" type="text/css" href="../../css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="https://at.alicdn.com/t/font_1477560793_5535157.css">
+    <link rel="stylesheet" href="../../css/main.min.css?_=201701181840">
+
+    <script src="http://bdimg.share.baidu.com/static/api/js/share.js?cdnversion=412540"></script>
+    <link rel="stylesheet" href="http://bdimg.share.baidu.com/static/api/css/share_style0_24.css">
+    <script src="../../js/jquery-1.11.1.min.js"></script>
+    <script src="../../js/errorCode.js?_=201701191718"></script>
+    <script src="../../js/config.js?_=201701191718"></script>
+    <script src="../../js/common.js?_=201701191718"></script>
+
+    <script src="../../js/angular.min.js"></script>
+    <script src="../../js/jquery.pagination.js"></script>
+    <style id="style-1-cropbar-clipper">
+        /* Copyright 2014 Evernote Corporation. All rights reserved. */
+        
+        .en-markup-crop-options {
+            top: 18px !important;
+            left: 50% !important;
+            margin-left: -100px !important;
+            width: 200px !important;
+            border: 2px rgba(255, 255, 255, .38) solid !important;
+            border-radius: 4px !important;
+        }
+        
+        .en-markup-crop-options div div:first-of-type {
+            margin-left: 0px !important;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- 视图加载区域 -->
+    <div id="body-view" class="body-view">
+        <link rel="stylesheet" type="text/css" href="../../css/read/read.css?version=201701181840" onload="$('.read_body').show();">
+        <link rel="stylesheet" type="text/css" href="../../css/read/mark.css?version=201701181840">
+        <!-- web阅读页 -->
+        <div class="read_body" style="">
+            <div class="read_public_header" style="display:none;">
+                <img src="../../images/home_logo.png" class="logo">
+                <span class="line"></span>
+                <span>爱数内容家，构建安全、直达的对外内容发布通道。</span>
+                <span style="margin-left:130px">已有账号，<a class="login_now routeAjax" href="#index/enterpriseLogin">登录</a></span>
+                <img src="../../images/close_app_footer.png" class="close_read_public_header" onclick="closeHeader()">
+            </div>
+            <div class="read_box read_content_div" id="read_content_div" style="">
+                <div class="read_header">
+                    <p>页面已进行阅读优化，选中感兴趣的内容，即可标注。</p>
+                    <h1 class="fav_title">title</h1>
+                    <div class="store_time">
+                        收藏时间：<em class="fav_time">2017-01-17&nbsp;&nbsp;16:43</em><i class="fav_from" style="margin-left:15px;"><a style="color:#4D5A86;" href="http://hex.youdao.com/zh-cn/index.html" target="_blank" class="noajax">来源网络</a>
+</i><br>
+                        <div class="share_group"></div>
+                    </div>
+                </div>
+                <div class="read_content">
+                    内容
+                </div>
+
+                <div class="read_column">
+                    <div class="column show_hide_mark show_mark current"><span></span><em>可见</em></div>
+                    <div class="column word_change">
+                        <p class="word_range">
+                            <em class="word_range_con">
+                    <b>小<i></i></b>
+                    <b class="current">标准<i></i></b>
+                    <b>大<i></i></b>
+                    <b>特大<i></i></b>
+                </em>
+                        </p>
+                        <p class="word_title"><span class="word"></span>字体</p>
+                    </div>
+                    <div class="column day_night"><span class="light"></span>黑夜</div>
+                    <div class="column jump_source_page"><a href="http://hex.youdao.com/zh-cn/index.html" target="_blank" class="noajax"><span class="jump"></span></a>源网页</div>
+                </div>
+            </div>
+            <div class="return_top"><span></span>顶部</div>
+            <!-- 标注遮罩层 -->
+            <div class="mark_layer" style="display:none;"></div>
+            <!-- 标注工具 -->
+            <div class="read_tag_box tag_box select_tag_box" style="display:none;">
+                <div class="tag_box_con">
+                    <div class="tag_box_con_l">
+                        <div class="interesting"><span></span>
+                            <!-- <b>+1</b> --></div>
+                        <div class="nonsense"><span></span></div>
+                    </div>
+                    <div class="tag_box_con_r">
+                        <!-- <div class="comment">有话说</div> -->
+                        <div class="comment_con">
+                            <div class="textarea_box">
+                                <div class="sendMarkText"></div>
+                                <textarea placeholder="说点什么咯！"></textarea>
+                                <em></em>
+                            </div>
+                        </div>
+                        <div class="no_comment"><span></span>还没有人说过什么，赶紧的。</div>
+                    </div>
+                    <!-- <span></span> -->
+                </div>
+            </div>
+            <!-- 标注展示列表 -->
+            <div class="read_tag_box tag_box show_tag" style="display:none;">
+                <div class="tag_box_con show_tag_con">
+                    <div class="tag_box_con_l">
+                        <div class="interesting" onclick="clickFunny(this)">
+                            <span></span>
+                            <!-- <b>+1</b> -->
+
+                            <i>11</i>
+                        </div>
+                        <div class="nonsense" onclick="clickBoring(this)">
+                            <span></span>
+                            <i>112</i>
+                        </div>
+                    </div>
+                    <div class="tag_box_con_r">
+                        <!-- <div class="comment">有话说</div> -->
+                        <div class="comment_con">
+                            <div class="textarea_box">
+                                <div class="sendMarkText" onclick="sendMarkText(this)"></div>
+                                <textarea placeholder="说点什么咯！" onpaste="markPaste(this,1)"></textarea>
+                                <em class="sendMarkText" onclick="sendMarkText(this)"></em>
+                            </div>
+                        </div>
+                        <div class="tag_list">
+                            <ul></ul>
+                        </div>
+                    </div>
+                    <!-- <span></span> -->
+                </div>
+            </div>
+            <!-- readPublic查看标注弹出框web -->
+
+        </div>
+        <!-- mobile阅读页 -->
+        <!-- readPublic查看标注弹出框app -->
+
+
+
+        <script type="text/javascript" src="../../js/read/read.js?version=201701181840"></script>
+        <script type="text/javascript" src="../../js/read/findMark.js?version=201701181840"></script>
+        <script type="text/javascript" id="s1" src="../../js/read/addMark.js"></script>
+        <script type="text/javascript">
+            $('.tag_box_con_l div').click(function(event) {
+                $(this).toggleClass('current');
+            });
+        </script>
+    </div>
+    <!-- 遮罩层 -->
+    <div class="body-mask-layer" style="display: none;"></div>
+
+</body>
+
+</html>

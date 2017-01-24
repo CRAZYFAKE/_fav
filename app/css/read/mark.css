@@ -1,0 +1,298 @@
+/* xuelin start */
+.tag_box{
+	width: 569px;
+	/* height: 133px; */
+	position: absolute;
+	top: 80px;
+	left: 50%;
+	margin-left:-284px;
+	z-index: 100;
+}
+.tag_box_con_l{
+	float: left;
+	width: 64px;
+	height: 100%;
+	margin-right: 5px;
+}
+.tag_box_con_l div{
+	width: 100%;
+	height:64px;
+	border-radius: 2px;
+	background: #ffffff;
+	box-shadow: 0 0 5px rgba(0,0,0,.5);
+	cursor: pointer;
+	position: relative;
+}
+.tag_box_con_l .interesting{
+	margin-bottom: 5px;
+}
+.tag_box_con_l span{
+	width: 16px;
+	height: 17px;
+	background: url(../../images/tag_pointer.png) 0 0;
+	position: absolute;
+	left: 24px;
+	top: 24px;
+}
+.tag_box_con_l div.current{
+	color: #E60013;
+}
+.tag_box_con_l div.current span{
+	background-position: -18px 0;
+}
+.nonsense span{
+	background-position: 0 -19px;
+}
+.tag_box_con_l .nonsense.current span{
+	background-position: -18px -19px;
+}
+.tag_box_con_r{
+	width: 500px;
+	min-height: 133px;
+	border-radius: 2px;
+	background: #ffffff;
+	box-shadow: 0 0 5px rgba(0,0,0,.5);	
+	float: left;
+}
+.comment_con{
+	/*height: 64px;*/
+	background: #f1f1f1;
+	border-bottom: 1px solid #dddddd;
+	padding: 13px 10px;
+}
+.comment_con .textarea_box{
+	width: 480px;
+	height: 38px;
+	background: #ffffff;
+	border: 1px solid #c9c9c9;
+	position: relative;
+}
+.textarea_box textarea{
+	height: 36px;
+	width: 478px;
+	padding: 8px 26px 2px 8px;
+	overflow-y:hidden;
+}
+.textarea_box em{
+	width: 30px;
+	height: 30px;
+	background: url(../../images/comment_point.png) 10px 10px no-repeat;
+	-webkit-background-size: 13px 11px;
+	background-size: 13px 11px;
+	position: absolute;
+	bottom: 3px;
+	right: 3px;
+}
+.textarea_box em.comment_y{
+	background-image: url(../../images/comment_point_y.png);
+	cursor: pointer;
+}
+.textarea_box em.comment_y:hover{
+	background-image: url(../../images/comment_point_h.png);
+}
+.no_comment{
+	text-align: center;
+	color: #A9A9A9;
+	line-height: 69px;
+}
+.no_comment span{
+	width: 34px;
+	height: 43px;
+	background: url(../../images/no_comment.png);
+	display: inline-block;
+	vertical-align: middle;
+	margin-top: -8px;
+	margin-right: 16px;
+}
+.show_tag{
+	top: 256px;
+}
+.show_tag_con .interesting,.show_tag_con .nonsense{
+	text-align: center;
+	font-size: 12px;
+	line-height: 64px;
+	color: #878787;
+}
+.show_tag_con span{
+	position: static;
+	display: inline-block;
+	vertical-align: middle;
+	margin-right: 4px;
+	margin-top: 3px;
+}
+.show_tag_con .interesting span{
+	margin-top: -4px;
+}
+.tag_list{
+	max-height: 378px;
+	overflow-y: auto;
+}
+.tag_list li{
+	border-bottom: 1px solid #DDDDDD;
+	color: #878787;
+	font-size: 12px;
+	padding: 11px 9px 11px 11px;
+	overflow:hidden;
+	position: relative;
+}
+.list_main_txt,.list_main_txt em,.list_main_txt b{
+	float: left;
+	font-weight: normal;
+}
+.list_main_txt{
+	margin-left:46px;
+}
+.show_tag .list_main_txt{
+	margin-right:25px;
+}
+.tag_list_main img{
+	width: 36px;
+	height: 36px;
+	float: left;
+	margin-right: 10px;
+	position: absolute;
+	top:11px;
+	left:11px;
+}
+.tag_list_time{
+	position: absolute;
+	top: 11px;
+	right: 9px;
+}
+.list_main_txt_t{
+	/*width:350px;*/
+	overflow-x:hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+}
+.list_main_txt p{
+	color: #595757;
+	margin-top: 2px;
+	word-break: break-all;
+}
+.show_tag_interesting span,.show_tag_nonsense span{
+  width: 14px;
+  height: 15px;
+  background: url(../../images/sprite_tag_icon.png) 0 0;
+  -webkit-background-size: 41px 58px;
+  background-size: 41px 58px;
+  display: inline-block;
+  vertical-align: middle;
+  margin-top: -3px;
+  margin-left: 6px;
+}
+.show_tag_nonsense span{
+	background-position: 0 -23px;
+	margin-top: 1px;
+}
+.show_tag_comment{
+	/*width: 401px;*/
+}
+/* xuelin end */
+/*标注展示色*/
+nrjmark{
+    border-bottom:2px dotted rgba(208,33,50,0.7)!important;
+    position:relative;
+    cursor:pointer;
+}
+temp {
+    background: #ffc3ab;
+}
+.air_bubble_circle{
+	display:block;
+	position: absolute;
+	top:23px;
+	left:0px;
+    /* -webkit-text-size-adjust:none!important; */
+	font-size:10px;
+	line-height: 10px;
+	color:rgba(208,33,50,0.9);
+	white-space: nowrap;
+	-webkit-transform-origin: 0 0 0;
+	-webkit-transform:scale(0.8);
+}
+.fontSize_xiao{
+	top:16px;
+	font-size:9px;
+	-webkit-transform-origin: 0 0 0;
+	-webkit-transform:scale(0.75);
+}
+.fontSize_biaozhun{
+	top:24px;
+	font-size:10px;
+	-webkit-transform-origin: 0 0 0;
+	-webkit-transform:scale(0.8);
+}
+.fontSize_da{
+	top:30px;
+	font-size:12px;
+	-webkit-transform-origin: 0 0 0;
+	-webkit-transform:scale(1);
+}
+.fontSize_teda{
+	top:34px;
+	font-size:12px;
+	-webkit-transform-origin: 0 0 0;
+	-webkit-transform:scale(1.1);
+}
+/* 标注列表删除按钮 */
+.del_mark_text_div{
+    width:90px;
+    height:19px;
+    position: absolute;
+	right: 9px;
+	bottom: 9px;
+    overflow-x:hidden;
+}
+.del_mark_text_button{
+    width:19px;
+    height:19px;
+    cursor:pointer;
+    float:right;
+    margin-right:0px;
+    background: url(/images/addMarkBoxICO/del_mark_text_icon.png) 0px 0px no-repeat;
+}
+.del_mark_text_button:hover{
+    background: url(/images/addMarkBoxICO/del_mark_text_icon.png) -24px 0px no-repeat;
+}
+.del_mark_text_box{
+    width:90px;
+    height:19px;
+    position: absolute;
+    top:0px;
+    left:90px;
+}
+.del_mark_text_box button{
+    width:45px;
+    height:19px;
+    line-height: 19px;
+    font-size:12px;
+    color:#FFFFFF;
+    background-color:#888888;
+}
+.del_mark_text_box_ok{
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+}
+.del_mark_text_box_cancel{
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+}
+.del_mark_text_box button:hover{
+    background-color:#D02130;    
+}
+/*移动端标注列表界面显示*/
+.app_show_tag{
+    width:100%;
+    position: fixed!important;
+    bottom:0px;
+    z-index: 10000000000;
+    font-size:12px;
+    border-top:1px solid #DDDDDD;
+}
+.app_show_tag .user_tag_con{
+    width:auto;
+}
+.tag_list{
+	background-color: #FFFFFF;
+}

@@ -1,0 +1,191 @@
+/*
+* @Author: zhangxuelin
+* @Date:   2016-09-18 16:30:38
+* @Last Modified by:   zhanglulu
+* @Last Modified time: 2017-01-05 11:24:38
+*/
+.userInfo_box{
+	padding: 0 60px;
+	min-width: 820px;
+	max-width: 1000px;	
+}
+.userInfo_box .userInfo_top{
+	height: 100px;
+	margin: 30px 0;
+}
+.userInfo_box .userInfo_top_l{
+	width: 100px;
+	height: 100px;
+	float: left;
+	margin-right: 30px;
+	position: relative;
+	cursor: pointer;
+}
+.userInfo_box .userImg_upload{
+	width: 100%;
+	height: 100%;
+}
+.userInfo_box .userInfo_top_l i{
+	width: 28px;
+	height: 28px;
+	background: url(../../images/personalCenter/edit_white.png) no-repeat center;
+	-webkit-background-size: 22px 22px;
+	background-size: 22px 22px;
+	position: absolute;
+	bottom: 0;
+	right: 0;
+} 
+.userInfo_box b.rotate_upload{
+	width: 40px;
+	height: 40px;
+	position: absolute;
+	top: 30px;
+	left: 30px;
+	background: url(../../images/loading.gif);
+	display: none;
+}
+.userInfo_box .userInfo_top_r{
+	height: 100px;
+	margin-left: 100px;
+}
+.userInfo_box .userInfo_top_r .state_one{
+	height: 100px;
+	padding-top: 15px;
+	line-height: 35px;
+}
+.userInfo_box .state_one h2{
+	font-size: 18px;
+	line-height: 35px;
+}
+.userInfo_box .state_one h2 span{
+	color: #d02130;
+}
+.userInfo_box .userInfo_top_r p{
+	font-size: 12px;
+}
+.userInfo_box .userInfo_top_r .state_two{
+	height: 100px;
+	background: #f1f1f1;
+	display: none;	
+}
+.userInfo_box .state_two p{
+	line-height: 57px;
+}
+.userInfo_box .state_two p.error{
+	color: #d02130;
+}
+.userInfo_box .state_two_btn{
+	height: 43px;
+	position: relative;
+}
+.userInfo_box .state_two_btn input{
+	width: 100px;
+	height: 25px;
+	opacity: 0;
+	filter: alpha(opacity=0);
+	cursor: pointer;
+}
+.userInfo_box .state_two_btn .btn_box{
+	position: absolute;
+	top: 0;
+	left: 30px;	
+}
+.userInfo_box .state_two_btn button{
+	width: 100px;
+	height: 25px;
+	border-radius: 20px;
+	background: #bd1627;
+	color: white;
+}
+.userInfo_box button.cancel{
+	background: #686667;
+	margin-left: 20px;
+}
+.userInfo_box .uploadbtnBox{
+	display: inline-block;;
+	width: 100px;
+	height: 25px;
+	position: relative;
+	cursor: pointer;
+}
+.userInfo_box .uploadbtnBox input{
+	position: absolute;
+	top: 0;
+	left: 0;
+	font-size: 0;
+}
+
+.userInfo_box .userInfo_bottom{
+	border: 10px solid #f1f1f1;
+	margin-bottom: 20px;
+	padding-left: 20px;
+	padding-bottom: 40px;
+} 
+.userInfo_box .userInfo_bottom h3{
+	font-size: 18px;
+	line-height: 64px;
+	border-bottom: 1px solid #f1f1f1;
+}
+.userInfo_box .userInfo_bottom li{
+	line-height: 30px;
+	border-bottom: 1px solid #f1f1f1;
+	padding: 16px 0;
+	font-size: 14px;
+}
+.userInfo_box li h4{
+	font-size: 14px;
+	line-height: 30px;
+}
+.userInfo_box .userInfo_userName,.userInfo_box .userInfo_email{
+	position: relative;
+}
+.userInfo_box span.userInfo_edit,.userInfo_box span.userInfo_edit{
+	width: 40px;
+	height: 40px;
+	background: url(../../images/personalCenter/edit_grey.png) no-repeat center;
+	-webkit-background-size: 22px 22px;
+	background-size: 22px 22px;
+	position: absolute;
+	top: 24px;
+	right: 20px;
+	cursor: pointer;
+}
+.userInfo_box span.userInfo_edit:hover,.userInfo_box span.userInfo_edit:hover{
+	background-image: url(../../images/personalCenter/edit_red.png);
+}
+.userInfo_box .personalInfo_edit_main{
+	height: 35px;
+	margin-top: 14px;
+}
+.userInfo_box .personalInfo_edit input{
+	float: left;
+	margin-right: 20px;
+	width: 360px;
+	height: 35px;
+	border-radius: 20px;
+	background: #f1f1f1;
+	padding-left: 20px;
+}
+.userInfo_box .personalInfo_edit_error input{
+	border:1px solid #bf1829;
+}
+.userInfo_box .personalInfo_edit_btnBox button{
+	float: left;
+	margin-right: 20px;
+	width: 120px;
+	height: 35px;
+	border-radius: 20px;
+	background: #bf1829;
+	color: white;
+}
+.userInfo_box button.personalInfo_edit_cancel{
+	background: #6a6869;
+}
+.userInfo_box .personalInfo_edit_errorInfo{
+	color: #bf1829;
+	line-height: 42px;
+	margin-left: 20px;
+} 
+.userInfo_box .personalInfo_edit{
+	display: none;
+}

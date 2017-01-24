@@ -1,0 +1,261 @@
+<html xmlns="http://www.w3.org/1999/xhtml" class="fsvs demo">
+<!--加class="fsvs demo"是为那个整屏滚的那个首页服务的-->
+<!--!DOCTYPE html后面加那一坨是html规范，加上后iframe高度自适应就不会产生滚动条-->
+
+<head lang="en">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
+    <title>爱数内容家 - 个人收藏</title>
+    <meta name="keywords" content="内容发布、企业订阅、个人收藏、在线标注">
+    <link rel="stylesheet" type="text/css" href="../css/bootstrap.min.css" />
+    <link rel="stylesheet" type="text/css" href='https://at.alicdn.com/t/font_1477560793_5535157.css' />
+    <link rel="stylesheet" href="../css/main.min.css?_=201701191718">
+
+    <style id="style-1-cropbar-clipper">
+        .en-markup-crop-options {
+            top: 18px !important;
+            left: 50% !important;
+            margin-left: -100px !important;
+            width: 200px !important;
+            border: 2px rgba(255, 255, 255, .38) solid !important;
+            border-radius: 4px !important;
+        }
+        
+        .en-markup-crop-options div div:first-of-type {
+            margin-left: 0px !important;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- 遮罩层 -->
+    <div class="body-mask-layer" style="display: none;"></div>
+    <script src="../js/language_pack.js"></script>
+    <script src="../js/jquery-1.11.1.min.js"></script>
+    <script src="../js/errorCode.js?_=201701191718"></script>
+    <script src="../js/config.js?_=201701191718"></script>
+    <script src="../js/common.js?_=201701191718"></script>
+
+    <script src="../js/angular.min.js"></script>
+    <script src="../js/jquery.pagination.js"></script>
+
+    <!-- 视图加载区域 -->
+    <div id="body-view" class="body-view">
+        <script>
+            // 登录信息
+            var token = getCookie("tokenid");
+            var uuid = getCookie("userid");
+            var belongCid = localStorage.getItem("belongCid");
+            var isAdmin = Util.stringToBoolean(localStorage.getItem("isAdmin"));
+            var isFabuAdmin = Util.stringToBoolean(localStorage.getItem("isFabuAdmin"));
+            var isCaAdmin = Util.stringToBoolean(localStorage.getItem("isCaAdmin"));
+
+            if (token == "" || uuid == "" || belongCid == null || isAdmin == null || isFabuAdmin == null || isCaAdmin == null) {
+                // pjax2("#index/enterpriseLogin");
+            } else {
+                // 其他信息
+                var belongCname = null;
+                var personName = null;
+                var newMessageNub = null;
+
+                action({
+                    url: nrjConfig.host + "/user/checktoken",
+                    data: {
+                        "token": getCookie('tokenid'),
+                        "uuid": getCookie('userid')
+                    },
+                    success: function(ret) {
+                        var json = $.parseJSON(ret);
+                        personName = json.name;
+
+                        // 填充头部名称
+                        $(".username").html(personName);
+                    }
+                })
+
+                action({
+                    url: "/user/getuserop",
+                    data: {
+                        "uuid": getCookie('userid'),
+                        "token": getCookie('tokenid')
+                    },
+                    success: function(ret) {
+                        var json = $.parseJSON(ret);
+                        if (json['isBelongTeam']) {
+                            var belongCid_new = json['isBelongTeam']['departmentIds'][0];
+                            belongCname = json['isBelongTeam']['departmentNames'][0];
+
+                            var isAdmin_new = json.isCreatedTeam ? true : false;
+
+                            // 填充一级组织名称
+                            if (!json['isCreatedTeam']) {
+                                if ($(".center_main .static_width").eq(0).size() > 0) {
+                                    $(".center_main .static_width").eq(0).html(belongCname);
+                                }
+                            }
+
+                            // 所属企业/管理员权限有变动
+                            if (belongCid_new != belongCid || isAdmin_new != isAdmin) {
+                                loginInfoOld();
+                            }
+
+                        } else {
+                            // 没有加入企业，直接跳出登录
+                            loginInfoOld();
+                        }
+                    }
+                })
+
+                var isFabuAdmin_new = false;
+                var isCaAdmin_new = false;
+
+                action({
+                    url: '/sub/getuseryfbpower',
+                    data: {
+                        'uuid': getCookie("userid"),
+                        'token': getCookie("tokenid"),
+                        'cid': localStorage.getItem("belongCid")
+                    },
+                    success: function(ret) {
+                        if (ret['power'].indexOf("0") != -1) {
+                            isFabuAdmin_new = true;
+                        }
+
+                        if (ret['power'].indexOf("1") != -1) {
+                            isCaAdmin_new = true;
+                        }
+
+                        // 如果角色有变动，说明登录信息已过时
+                        if (isFabuAdmin_new != isFabuAdmin || isCaAdmin_new != isCaAdmin) {
+                            loginInfoOld();
+                        }
+                    }
+                })
+
+            }
+
+            function loginInfoOld() {
+                Util.showTipModal("登录信息已过时，请重新登录");
+                setTimeout(function() {
+                    exitLogin();
+                }, 1000);
+            }
+        </script>
+
+        <div id="companyManageMain" style="height:100%;">
+            <!-- 头部 -->
+            <div class="company-head" id="mainHead" style="min-width:1024px;">
+                <!-- 企业管理头部 -->
+                <div class="fl left">
+                    <div class="logo-wrap">
+                        <a href=""><img class="logo" src="../images/m_logo_new.png"></a>
+                    </div>
+                    <div class="company-manage" style="display: none;">
+                        <span class="manage">企业管理</span>
+                    </div>
+                </div>
+
+
+                <script>
+                    // 填充头部信息
+                    $(".userface").attr('src', getUserFace(getCookie('userid'))).attr('onerror', window.userfaceonerror);
+                    $(".username").html(personName);
+                </script>
+            </div>
+            <!-- 内容 -->
+            <div style="width:100%;height:100%;padding-top:60px;min-width:1024px;">
+                <div class="main_container">
+                    <!-- 右侧 -->
+                    <div class="view-two-right" id="mainRight">
+                        <div id="myFavPage" class="myFavPage" style="width:100%;height:100%;overflow:auto;position:relative;">
+                            <!-- 书签搜索查看条件区域 -->
+                            <div class="favList_area" style="margin-right: 240px;">
+                                <div class="see_condition">
+                                    查看条件：<span class="tag_name"></span>&nbsp;共<span class="tag_fav_num"></span>条
+                                    <button class="clear_tag_search" onclick="clearTagSearch()">清除条件</button>
+                                </div>
+                                <p class="my_group_help">
+                                    如何使用我的收藏，请<a href="https://art.kf5.com/hc/kb/category/27173/" target="_blank"><span>点击查看</span></a>
+                                </p>
+                                <div class="loading" style="position: absolute; z-index: 100; left: 50%; margin-top: -60px; margin-left: -20px; top: 236px; display: none;">
+                                    <img src="../images/loading.gif">
+                                </div>
+                                <ul class="fav_list" id="favList">
+                                    <div style="width:320px;position:absolute;top:50%;left:50%;margin-top:-30px;margin-left:-170px;height:30px;line-height:30px;text-align:center;font-size:25px;color:#888888;">该收藏夹还没有收藏呦~~
+                                        <div></div>
+                                    </div>
+                                </ul>
+                            </div>
+                            <div class="show_or_hide shouqi" onclick="hideTagUserArea()" style="display: none;"> &gt;&gt; 收起</div>
+                            <div class="show_or_hide zhankai" onclick="showTagUserArea()" style="display: none;"> &lt;&lt; 团队成员</div>
+                            <!-- 书签列表和用户列表区域 -->
+                            <div class="tagList_and_userList_area">
+                                <div id="tagList" class="tag_list"></div>
+
+                            </div>
+                            <div style="clear:both;"></div>
+
+
+                            <!-- 编辑收藏弹出框 -->
+                            <div class="edit_mask" style="display:none;">
+                                <div class="edit_box">
+                                    <div class="edit_box_top">
+                                        编辑
+                                        <img src="../images/read_person_cha.png" alt="">
+                                    </div>
+                                    <div class="edit_box_center">
+                                        <div class="save_tag">
+                                            <div class="save_tag_top">
+                                                <p class="tag_div_error"></p>
+                                                <p>标签 :</p>
+                                                <p class="selected_tag_old" style="display:none;"></p>
+                                                <div class="edit_tag_div">
+                                                    <input type="text" class="edit_tag_input">
+                                                </div>
+                                            </div>
+                                            <div class="usual_use">
+                                                <p>常用 :</p>
+                                                <div class="usual_use_con"></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="edit_box_bottom">
+                                        <div class="btn_left">确定</div>
+                                        <div class="btn_right">取消</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- 删除收藏弹出框 -->
+                            <div class="del_mask" style="display: none;">
+                                <div class="delete_confirm" id="delConfirm">
+                                    <div class="delete_confirm_title">
+                                        删除收藏
+                                        <div class="del-fav-cha" onclick="cancelDelFav()"><img src="../images/read_person_cha.png"></div>
+                                    </div>
+                                    <div class="delete_text">
+                                        <p class="p1" style="margin-bottom:0;">确定删除此收藏？</p>
+                                    </div>
+                                    <div class="delete_btn">
+                                        <div class="delete_left" onclick="okDelFav()"><span>确定</span></div>
+                                        <div class="delete_right" onclick="cancelDelFav()"><span>取消</span></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <script type="text/javascript" src="../js/fav/tag.js?version=201701221128"></script>
+                        <script type="text/javascript" src="../js/fav/myFav.js?version=201701221128"></script>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- head start -->
+        <script type="text/javascript" src="../js/company/public.js?version=201701221128"></script>
+        <script type="text/javascript" src="../js/company/left.js?version=201701221128"></script>
+        <!-- head end -->
+    </div>
+
+</body>
+
+</html>
