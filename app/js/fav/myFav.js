@@ -1,5 +1,9 @@
-var tokenid = getCookie("tokenid");
-var userid = getCookie("userid");
+// var tokenid = getCookie("tokenid");
+// var userid = getCookie("userid");
+
+const remote = require('electron').remote;
+var data = public().readFileSync(remote.getGlobal('ROOT_PATH') + '\\file\\sql');
+console.log(data);
 
 //有数据
 // var tokenid = 'd3a72afd-debd-456a-9e34-17a0b4bd8e29';

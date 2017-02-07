@@ -111,18 +111,14 @@
             ret = JSON.parse(re);
             const electron = require('electron');
             const ipcRenderer = electron.ipcRenderer;
+            const remote = require('electron').remote;
             ipcRenderer.on('asynchronous-reply', function(event, arg) {
                 // window.close();
             })
+
             if (!ret['errorCode']) {
-                // window.close();
-                // console.log(document.cookie);
-                var fs = require('fs');
-                fs.appendFile(__dirname + '/file/sql', 'arr', function(err) {
-                    if (err)
-                        console.log("fail " + err);
-                    else
-                        console.log("写入文件ok");
+                public().writeFile(remote.getGlobal('ROOT_PATH') + '\\file\\sql', JSON.stringify(ret)).then(re => {
+                    console.log(re);
                 });
                 ipcRenderer.send('asynchronous-message', 'login_success')
             } else {

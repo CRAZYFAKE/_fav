@@ -7,12 +7,13 @@ const {
     dialog //创建原生dialog
 } = electron;
 const ipcMain = electron.ipcMain; //主进程
-
+//全局变量
+global.ROOT_PATH = __dirname;
 
 ipcMain.on('asynchronous-message', function(event, arg) {
     switch (arg) {
         case 'login_success':
-            //关闭上一个窗口
+            // 关闭上一个窗口
             windowList.pop();
             //创建窗口
             let favWindow = new BrowserWindow({
